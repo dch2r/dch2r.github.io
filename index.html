@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=10">
+  <link rel="stylesheet" href="styles.css?v=11">
 </head>
 <body>
   <header class="topbar">
@@ -55,11 +55,19 @@
         <p>Tells you whether a drop in your LLM eval scores is a real regression or just noise. It uses paired bootstrap tests, LLM judge calibration and flaky test detection. Shipped on PyPI with a CLI, a GitHub Action, a FastAPI server, a Next.js dashboard and a Helm chart.</p>
         <figure class="showcase" data-tabs>
           <div class="tabbar" role="tablist" aria-label="signalfloor views">
-            <button role="tab" aria-selected="true" aria-controls="sf-verdict" id="sf-verdict-tab">Verdict</button>
+            <button role="tab" aria-selected="true" aria-controls="sf-demo" id="sf-demo-tab">Demo</button>
+            <button role="tab" aria-selected="false" aria-controls="sf-verdict" id="sf-verdict-tab" tabindex="-1">Verdict</button>
             <button role="tab" aria-selected="false" aria-controls="sf-trace" id="sf-trace-tab" tabindex="-1">Trace</button>
             <button role="tab" aria-selected="false" aria-controls="sf-cli" id="sf-cli-tab" tabindex="-1">CLI in CI</button>
           </div>
-          <div class="panel" role="tabpanel" id="sf-verdict" aria-labelledby="sf-verdict-tab">
+          <div class="panel" role="tabpanel" id="sf-demo" aria-labelledby="sf-demo-tab">
+            <a href="img/demo-signalfloor.webp"><picture>
+              <source media="(prefers-reduced-motion: reduce)" srcset="img/demo-signalfloor-poster.jpg">
+              <img src="img/demo-signalfloor.webp" alt="Recording of signalfloor: two CLI comparisons, then the dashboard comparing two agent runs and opening the trace of the case that dropped" width="1200" height="720" loading="lazy">
+            </picture></a>
+            <figcaption>signalfloor running. First the CLI on a rerun of the same version and on a really worse one. Then the dashboard comparing two traced runs of the agent and opening the question that dropped.</figcaption>
+          </div>
+          <div class="panel" role="tabpanel" id="sf-verdict" aria-labelledby="sf-verdict-tab" hidden>
             <a href="img/signalfloor-compare.jpg"><img src="img/signalfloor-compare.jpg" alt="signalfloor dashboard comparing two prompt versions, with the verdict Inconclusive" width="1480" height="740" loading="lazy"></a>
             <figcaption>Two prompt versions of a LangGraph agent on 100 HotpotQA questions. The mean went up by 0.083, but the bounds still include zero, so signalfloor calls it inconclusive instead of a win. 22 questions got better and 12 got worse.</figcaption>
           </div>
@@ -90,7 +98,19 @@ verdict     <span class="bad">regression</span>
           <span class="meta">Research · 2026</span>
         </div>
         <p>A training-free pipeline that checks each object Qwen2.5-VL-7B mentions in a caption against the image with CLIP, then asks the model to rewrite what it can't verify. On 500 MS COCO images the standard CHAIR metric reported 15.6% fewer hallucinated captions. I checked each of the 8 captions it counted as fixed by hand. All 8 were correct to begin with, so the gain came from errors in the metric, not from real fixes.</p>
-        <figure class="showcase audit">
+        <figure class="showcase" data-tabs>
+          <div class="tabbar" role="tablist" aria-label="VLM project views">
+            <button role="tab" aria-selected="true" aria-controls="vlm-demo" id="vlm-demo-tab">Demo</button>
+            <button role="tab" aria-selected="false" aria-controls="vlm-audit" id="vlm-audit-tab" tabindex="-1">Audit</button>
+          </div>
+          <div class="panel" role="tabpanel" id="vlm-demo" aria-labelledby="vlm-demo-tab">
+            <a href="img/demo-vlm.webp"><picture>
+              <source media="(prefers-reduced-motion: reduce)" srcset="img/demo-vlm-poster.jpg">
+              <img src="img/demo-vlm.webp" alt="The pipeline on one COCO image: caption, extracted entities, CLIP scores with four flagged, re-prompt, new caption, and the laptop that was really there" width="1200" height="720" loading="lazy">
+            </picture></a>
+            <figcaption>The pipeline on one COCO image. The entity extraction and CLIP scores were run live with the project code. The captions are Qwen2.5-VL-7B's logged outputs from the 500-image run.</figcaption>
+          </div>
+          <div class="panel audit" role="tabpanel" id="vlm-audit" aria-labelledby="vlm-audit-tab" hidden>
           <div class="audit-row">
             <img src="img/coco-219315.jpg" alt="A beer bottle and a pastry on a desk, with a laptop on the right" width="360" height="360" loading="lazy">
             <div>
@@ -113,6 +133,7 @@ verdict     <span class="bad">regression</span>
             </div>
           </div>
           <figcaption>Three of the 8 captions the metric counted as fixed, with the model's original output. In each case the pipeline's rewrite dropped a correct detail and the score improved. Images from MS COCO val2014.</figcaption>
+                  </div>
         </figure>
         <ul class="tags"><li>PyTorch</li><li>Qwen2.5-VL</li><li>CLIP</li><li>Hugging Face</li></ul>
         <p class="card-links"><a href="https://github.com/dch2r/vlm-hallucination-calibration">Code</a></p>
@@ -124,7 +145,19 @@ verdict     <span class="bad">regression</span>
           <span class="meta">Research · 2025</span>
         </div>
         <p>GRPO post-training of Qwen2.5-1.5B on a single T4 GPU, with a full audit of the rewards and evaluation. Showed that the score gain came from answer formatting rather than better math, and that the reward parser was penalizing correct answers.</p>
-        <figure class="showcase">
+        <figure class="showcase" data-tabs>
+          <div class="tabbar" role="tablist" aria-label="Aha Moment views">
+            <button role="tab" aria-selected="true" aria-controls="aha-demo" id="aha-demo-tab">Demo</button>
+            <button role="tab" aria-selected="false" aria-controls="aha-side" id="aha-side-tab" tabindex="-1">Side by side</button>
+          </div>
+          <div class="panel" role="tabpanel" id="aha-demo" aria-labelledby="aha-demo-tab">
+            <a href="img/demo-aha.webp"><picture>
+              <source media="(prefers-reduced-motion: reduce)" srcset="img/demo-aha-poster.jpg">
+              <img src="img/demo-aha.webp" alt="Replay: base and trained model answers typing out, the parser scoring them, the 21 to 23 out of 32 summary, and a correct training answer that got reward 0" width="1200" height="720" loading="lazy">
+            </picture></a>
+            <figcaption>A replay of the logged run. Both answers are the models' real outputs, scored with the project's own parsers. The last part is a real training sample that was correct and still got a reward of 0.</figcaption>
+          </div>
+          <div class="panel" role="tabpanel" id="aha-side" aria-labelledby="aha-side-tab" hidden>
           <p class="q"><span class="label">Question</span>Bella got 2 dozen roses from her parents and 2 roses from each of her 10 dancer friends. How many roses did she get?</p>
           <div class="compare-answers">
             <div class="answer">
@@ -137,6 +170,7 @@ verdict     <span class="bad">regression</span>
             </div>
           </div>
           <figcaption>Same reasoning and the same answer, word for word. The trained model only added the answer tag the scorer looks for. The score went from 21/32 to 23/32, and both new correct answers were changes like this one. Paired McNemar test, p = 0.50.</figcaption>
+                  </div>
         </figure>
         <ul class="tags"><li>PyTorch</li><li>TRL</li><li>LoRA</li><li>GRPO</li></ul>
         <p class="card-links"><a href="https://github.com/dch2r/Chasing-the-Aha-Moment">Code</a></p>
