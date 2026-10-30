@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
   <header class="topbar">
@@ -88,7 +88,31 @@ verdict     <span class="bad">regression</span>
           <h3><a href="https://github.com/dch2r/vlm-hallucination-calibration">Calibrating Hallucinations in Vision-Language Models</a></h3>
           <span class="meta">Research · 2026</span>
         </div>
-        <p>A training-free pipeline that checks every object a vision-language model mentions against the image using CLIP, then rewrites only the parts it made up. Cut caption-level hallucinations by 15.6% on MS COCO with Qwen2.5-VL-7B.</p>
+        <p>A training-free pipeline that checks each object Qwen2.5-VL-7B mentions in a caption against the image with CLIP, then asks the model to rewrite what it can't verify. On 500 MS COCO images the standard CHAIR metric reported 15.6% fewer hallucinated captions. I checked each of the 8 captions it counted as fixed by hand. All 8 were correct to begin with, so the gain came from errors in the metric, not from real fixes.</p>
+        <figure class="showcase audit">
+          <div class="audit-row">
+            <img src="img/coco-219315.jpg" alt="A beer bottle and a pastry on a desk, with a laptop on the right" width="360" height="360" loading="lazy">
+            <div>
+              <p class="said"><span class="label">Model said</span>The image shows a bottle of Kronenbourg 1664 beer and a pastry with a white glaze and crumbled topping, placed on a napkin next to a <mark>laptop</mark> on a desk.</p>
+              <p class="why"><span class="flag">Flagged as hallucination</span> The laptop is there. COCO's labels for this image leave it out.</p>
+            </div>
+          </div>
+          <div class="audit-row">
+            <img src="img/coco-29444.jpg" alt="A man holding a yellow frisbee, with blue portable toilets behind him" width="360" height="360" loading="lazy">
+            <div>
+              <p class="said"><span class="label">Model said</span>A man is smiling while holding a yellow frisbee, standing outdoors with portable <mark>toilets</mark> and trees in the background.</p>
+              <p class="why"><span class="flag">Flagged as hallucination</span> The blue portable toilets are right behind him.</p>
+            </div>
+          </div>
+          <div class="audit-row">
+            <img src="img/coco-471342.jpg" alt="A pan of broccoli on top of rice and vegetables" width="360" height="360" loading="lazy">
+            <div>
+              <p class="said"><span class="label">Model said</span>The image shows a dish of steamed broccoli served over a <mark>bed</mark> of rice with colorful vegetables mixed in.</p>
+              <p class="why"><span class="flag">Flagged as hallucination</span> The metric matched the word "bed" to the COCO object bed.</p>
+            </div>
+          </div>
+          <figcaption>Three of the 8 captions the metric counted as fixed, with the model's original output. In each case the pipeline's rewrite dropped a correct detail and the score improved. Images from MS COCO val2014.</figcaption>
+        </figure>
         <ul class="tags"><li>PyTorch</li><li>Qwen2.5-VL</li><li>CLIP</li><li>Hugging Face</li></ul>
         <p class="card-links"><a href="https://github.com/dch2r/vlm-hallucination-calibration">Code</a></p>
       </article>

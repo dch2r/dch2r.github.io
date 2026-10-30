@@ -175,3 +175,16 @@ h3 a { color: var(--text); }
 @media (max-width: 600px) {
   .compare-answers { grid-template-columns: 1fr; }
 }
+
+.audit-row { display: grid; grid-template-columns: 112px 1fr; gap: 16px; align-items: start; padding: 12px 0; border-top: 1px solid var(--line); }
+.audit-row:first-child { border-top: 0; padding-top: 0; }
+.audit-row img { width: 112px; height: 112px; object-fit: cover; }
+.said { margin: 0 0 6px; font-size: 15px; }
+.said mark { background: color-mix(in srgb, #d97706 22%, transparent); color: inherit; padding: 0 3px; border-radius: 3px; }
+.why { margin: 0; font-size: 14px; color: var(--muted); }
+.flag { display: inline-block; font-size: 12px; font-weight: 600; color: #b42318; background: color-mix(in srgb, #b42318 12%, transparent); padding: 1px 8px; border-radius: 999px; margin-right: 6px; }
+@media (prefers-color-scheme: dark) { .flag { color: #ff8a80; } }
+@media (max-width: 600px) {
+  .audit-row { grid-template-columns: 80px 1fr; gap: 12px; }
+  .audit-row img { width: 80px; height: 80px; }
+}
