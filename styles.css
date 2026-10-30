@@ -54,7 +54,17 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .topbar nav a { color: var(--muted); margin-left: 22px; font-size: 15px; }
 .topbar nav a:hover { color: var(--text); text-decoration: none; }
 
-.hero { padding: 88px 0 40px; }
+.hero { padding: 88px 0 40px; display: flex; flex-direction: row-reverse; align-items: center; gap: 48px; }
+.hero-text { flex: 1; min-width: 0; }
+.portrait {
+  flex: none;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  box-shadow: 0 0 0 6px var(--surface), 0 0 0 7px var(--line);
+}
 .hero h1 { font-size: 44px; line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 10px; }
 .role { font-size: 19px; font-weight: 500; color: var(--muted); margin: 0 0 22px; }
 .lead { font-size: 18px; max-width: 640px; margin: 0 0 22px; }
@@ -99,7 +109,8 @@ h3 a { color: var(--text); }
 .footer { color: var(--muted); font-size: 14px; padding-top: 24px; padding-bottom: 48px; border-top: 1px solid var(--line); }
 
 @media (max-width: 600px) {
-  .hero { padding-top: 56px; }
+  .hero { padding-top: 48px; flex-direction: column; align-items: flex-start; gap: 24px; }
+  .portrait { width: 112px; height: 112px; }
   .hero h1 { font-size: 34px; }
   .card-head, .entry-head { flex-direction: column; gap: 2px; }
   .skills { grid-template-columns: 1fr; gap: 2px; }
