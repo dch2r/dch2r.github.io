@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
   <header class="topbar">
@@ -52,6 +52,33 @@
           <span class="meta">Open source · 2026</span>
         </div>
         <p>Tells you whether a drop in your LLM eval scores is a real regression or just noise. It uses paired bootstrap tests, LLM judge calibration and flaky test detection. Shipped on PyPI with a CLI, a GitHub Action, a FastAPI server, a Next.js dashboard and a Helm chart.</p>
+        <figure class="showcase" data-tabs>
+          <div class="tabbar" role="tablist" aria-label="signalfloor views">
+            <button role="tab" aria-selected="true" aria-controls="sf-verdict" id="sf-verdict-tab">Verdict</button>
+            <button role="tab" aria-selected="false" aria-controls="sf-trace" id="sf-trace-tab" tabindex="-1">Trace</button>
+            <button role="tab" aria-selected="false" aria-controls="sf-cli" id="sf-cli-tab" tabindex="-1">CLI in CI</button>
+          </div>
+          <div class="panel" role="tabpanel" id="sf-verdict" aria-labelledby="sf-verdict-tab">
+            <a href="img/signalfloor-compare.jpg"><img src="img/signalfloor-compare.jpg" alt="signalfloor dashboard comparing two prompt versions, with the verdict Inconclusive" width="1480" height="740" loading="lazy"></a>
+            <figcaption>Two prompt versions of a LangGraph agent on 100 HotpotQA questions. The mean went up by 0.083, but the bounds still include zero, so signalfloor calls it inconclusive instead of a win. 22 questions got better and 12 got worse.</figcaption>
+          </div>
+          <div class="panel" role="tabpanel" id="sf-trace" aria-labelledby="sf-trace-tab" hidden>
+            <a href="img/signalfloor-trace.jpg"><img src="img/signalfloor-trace.jpg" alt="Side by side OpenTelemetry traces of one question from both prompt versions" width="1600" height="1082" loading="lazy"></a>
+            <figcaption>Why one question dropped from 1.0 to 0.22. The v1 agent searched and answered "YG Entertainment". The v2 agent skipped the search and answered in a full sentence. The answer was right, but F1 penalized the extra words. The traces come from OpenTelemetry spans the agent sends to the server.</figcaption>
+          </div>
+          <div class="panel" role="tabpanel" id="sf-cli" aria-labelledby="sf-cli-tab" hidden>
+<pre class="terminal"><span class="prompt">$</span> signalfloor compare baseline.jsonl candidate.jsonl
+cases       120
+baseline    0.7500
+candidate   0.5833
+change      -0.1667  (bootstrap 95% CI -0.2667 to -0.0583)
+bounds      -0.3119 to -0.0192  (95% at any sample size)
+
+verdict     <span class="bad">regression</span>
+<span class="dim">[exit 1]</span></pre>
+            <figcaption>The same check as a CI step. A real regression exits with code 1 and blocks the merge. A change that is only noise passes or asks for more cases, with the size of the drop it can't rule out.</figcaption>
+          </div>
+        </figure>
         <ul class="tags"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>Next.js</li><li>Kubernetes</li><li>OpenTelemetry</li></ul>
         <p class="card-links"><a href="https://pypi.org/project/signalfloor/">PyPI</a><a href="https://github.com/dch2r/signalfloor">Code</a></p>
       </article>
@@ -72,6 +99,20 @@
           <span class="meta">Research · 2025</span>
         </div>
         <p>GRPO post-training of Qwen2.5-1.5B on a single T4 GPU, with a full audit of the rewards and evaluation. Showed that the score gain came from answer formatting rather than better math, and that the reward parser was penalizing correct answers.</p>
+        <figure class="showcase">
+          <p class="q"><span class="label">Question</span>Bella got 2 dozen roses from her parents and 2 roses from each of her 10 dancer friends. How many roses did she get?</p>
+          <div class="compare-answers">
+            <div class="answer">
+              <div class="answer-head"><span>Base model</span><span class="verdict bad">Scored wrong</span></div>
+              <p>2 × 12 = 24 roses from her parents.<br>2 × 10 = 20 roses from her friends.<br>24 + 20 = 44 roses.<br>Thus, Bella received a total of 44 roses.</p>
+            </div>
+            <div class="answer">
+              <div class="answer-head"><span>After GRPO</span><span class="verdict good">Scored right</span></div>
+              <p>2 × 12 = 24 roses from her parents.<br>2 × 10 = 20 roses from her friends.<br>24 + 20 = 44 roses.<br>Thus, Bella received a total of 44 roses.<br><mark>&lt;answer&gt;44&lt;/answer&gt;</mark></p>
+            </div>
+          </div>
+          <figcaption>Same reasoning and the same answer, word for word. The trained model only added the answer tag the scorer looks for. The score went from 21/32 to 23/32, and both new correct answers were changes like this one. Paired McNemar test, p = 0.50.</figcaption>
+        </figure>
         <ul class="tags"><li>PyTorch</li><li>TRL</li><li>LoRA</li><li>GRPO</li></ul>
         <p class="card-links"><a href="https://github.com/dch2r/Chasing-the-Aha-Moment">Code</a></p>
       </article>
@@ -143,5 +184,29 @@
   </main>
 
   <footer class="wrap footer">Diwesh Chaurasia · Houston, TX</footer>
+
+  <script>
+    document.querySelectorAll("[data-tabs]").forEach(function (fig) {
+      var tabs = Array.prototype.slice.call(fig.querySelectorAll('[role="tab"]'));
+      function select(tab) {
+        tabs.forEach(function (t) {
+          var on = t === tab;
+          t.setAttribute("aria-selected", on);
+          t.tabIndex = on ? 0 : -1;
+          document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+        });
+      }
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener("click", function () { select(tab); });
+        tab.addEventListener("keydown", function (e) {
+          var step = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+          if (!step) return;
+          var next = tabs[(i + step + tabs.length) % tabs.length];
+          select(next);
+          next.focus();
+        });
+      });
+    });
+  </script>
 </body>
 </html>

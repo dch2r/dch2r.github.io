@@ -113,3 +113,65 @@ h3 a { color: var(--text); }
   .topbar nav { white-space: nowrap; }
   .topbar nav a { margin-left: 12px; font-size: 14px; }
 }
+
+/* Project showcases */
+.showcase { margin: 18px 0 4px; }
+.showcase img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+.showcase figcaption { color: var(--muted); font-size: 14px; line-height: 1.55; margin-top: 10px; }
+
+.tabbar { display: flex; gap: 4px; margin-bottom: 10px; border-bottom: 1px solid var(--line); }
+.tabbar button {
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  padding: 6px 10px 8px;
+  margin-bottom: -1px;
+  cursor: pointer;
+}
+.tabbar button:hover { color: var(--text); }
+.tabbar button[aria-selected="true"] { color: var(--text); border-bottom-color: var(--accent); }
+.tabbar button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+.terminal {
+  margin: 0;
+  padding: 18px 20px;
+  background: #15171c;
+  color: #d7dae0;
+  border-radius: 8px;
+  font: 13.5px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  overflow-x: auto;
+}
+.terminal .prompt { color: #7d8590; }
+.terminal .bad { color: #ff7b72; font-weight: 600; }
+.terminal .dim { color: #7d8590; }
+
+.q { font-size: 15px; margin: 0 0 12px; }
+.label { display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 2px; }
+.compare-answers { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.answer { border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; background: var(--bg); }
+.answer-head { display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 8px; }
+.answer p { margin: 0; font: 13.5px/1.65 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.answer mark { background: color-mix(in srgb, var(--accent) 18%, transparent); color: inherit; padding: 1px 3px; border-radius: 3px; }
+.verdict { font-size: 12px; padding: 2px 8px; border-radius: 999px; }
+.verdict.bad { color: #b42318; background: color-mix(in srgb, #b42318 12%, transparent); }
+.verdict.good { color: #067647; background: color-mix(in srgb, #067647 12%, transparent); }
+
+@media (prefers-color-scheme: dark) {
+  .verdict.bad { color: #ff8a80; }
+  .verdict.good { color: #6fd39a; }
+}
+
+@media (max-width: 600px) {
+  .compare-answers { grid-template-columns: 1fr; }
+}
