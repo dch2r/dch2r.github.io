@@ -1,482 +1,142 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 <head>
-    <meta name="google-site-verification" content="d3CgWoXb7t6qmEUOIv0-tKNPMBULYEHvACgbocGMynU" />
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diwesh Portfolio</title>
-    <!--    CSS files linking     -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="color-1.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- =====Style switcher===== -->
-    <link rel="stylesheet" href="color-1.css" class="alternate-style" title="color-1" disabled>
-    <link rel="stylesheet" href="color-2.css" class="alternate-style" title="color-2" disabled>
-    <link rel="stylesheet" href="color-3.css" class="alternate-style" title="color-3" disabled>
-    <link rel="stylesheet" href="color-4.css" class="alternate-style" title="color-4" disabled>
-    <link rel="stylesheet" href="color-5.css" class="alternate-style" title="color-5" disabled>
-    <link rel="stylesheet" href="style-switcher.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="d3CgWoXb7t6qmEUOIv0-tKNPMBULYEHvACgbocGMynU">
+  <title>Diwesh Chaurasia</title>
+  <meta name="description" content="Diwesh Chaurasia is an ML engineer and software engineer, studying for an MS in Computer Science at Rice University.">
+  <meta property="og:title" content="Diwesh Chaurasia">
+  <meta property="og:description" content="ML engineer and software engineer. MS in Computer Science at Rice University.">
+  <meta property="og:url" content="https://dch2r.github.io/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!--        Main container starts from here     -->
-<div class="main-container">
-    <!--               Aside start              -->
-    <div class="aside">
-      <div class="logo">
-        <a href="#"><span>P</span>ortfolio</a>
-      </div> 
-      <div class="nav-toggler">
-        <span></span>
-      </div>
-      <ul class="nav">
-        <li><a href="#home" class="active"><i class="fa fa-home"></i>Home</a></li>
-        <li><a href="#about"><i class="fa fa-user"></i>About</a></li>
-        <li><a href="#services"><i class="fa fa-list"></i>Service</a></li>
-        <li><a href="#portfolio"><i class="fa fa-briefcase"></i>Portfolio</a></li>
-        <li><a href="#contact"><i class="fa fa-comments"></i>Contact</a></li>
-      </ul>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="/">Diwesh Chaurasia</a>
+      <nav>
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-    <!--                  Aside end             -->   
-    <!--             Main content start         --> 
-    <div class="main-content">
-    <!--            Home section start          -->  
-    <section class="home section" id="home"> <!--'hidden' tag to hide the content-->
-        <div class="container">
-          <div class="row">
-            <div class="home-info padd-15">
-              <h3 class="hello">Hello, my name is <span class="name">Diwesh Chaurasia</span></h3>
-              <h3 class="my-profession">I am a <span class="typing">Computer Engineer</span></h3>
-              <p> I am a tech enthusiast and I love coding. I have good skills in web development and frontend designing. I like doing DSA in my free times.</p>
-              <a href="contact" class="btn hire-me">Hire Me</a>
-            </div>
-            <div class="home-img padd-15">
-              <img src="My_Photo.jpg" alt="">
-            </div>
-          </div> 
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Diwesh Chaurasia</h1>
+      <p class="role">ML Engineer · Software Engineer</p>
+      <p class="lead">I build machine learning systems end to end, from training and evaluating models to shipping the software around them. I'm currently doing an MS in Computer Science at Rice University, specializing in machine learning.</p>
+      <p class="links">
+        <a href="https://github.com/dch2r">GitHub</a>
+        <a href="https://www.linkedin.com/in/diweshch/">LinkedIn</a>
+        <a href="mailto:diweshch2r@gmail.com">Email</a>
+      </p>
+    </section>
+
+    <section id="work">
+      <h2>Selected work</h2>
+
+      <article class="card">
+        <div class="card-head">
+          <h3><a href="https://github.com/dch2r/signalfloor">signalfloor</a></h3>
+          <span class="meta">Open source · 2026</span>
         </div>
-    </section>    
-    <!--            Home section end             -->
-    <!--            About section start          -->
-    <section class="about section" id="about">  <!--'hidden' tag to hide the content-->
-      <div class="container">
-        <div class="row">
-          <div class="section-title padd-15">
-            <h2>About Me</h2>
-          </div>
+        <p>Tells you whether a drop in your LLM eval scores is a real regression or just noise. It uses paired bootstrap tests, LLM judge calibration and flaky test detection. Shipped on PyPI with a CLI, a GitHub Action, a FastAPI server, a Next.js dashboard and a Helm chart.</p>
+        <ul class="tags"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>Next.js</li><li>Kubernetes</li><li>OpenTelemetry</li></ul>
+        <p class="card-links"><a href="https://pypi.org/project/signalfloor/">PyPI</a><a href="https://github.com/dch2r/signalfloor">Code</a></p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <h3><a href="https://github.com/dch2r/vlm-hallucination-calibration">Calibrating Hallucinations in Vision-Language Models</a></h3>
+          <span class="meta">Research · 2026</span>
         </div>
-        <div class="row">
-          <div class="about-content padd-15">
-            <div class="row">
-              <div class="about-text padd-15">
-                <h3>I'm Diwesh Chaurasia and <span>Tech Enthusiast</span></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, natus perferendis? Laboriosam cumque mollitia quisquam voluptatem cum nisi? Ab aperiam illo pariatur sequi accusantium quam illum reiciendis non aspernatur dicta.</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="personal-info padd-15">
-                <div class="row">
-                  <div class="info-item padd-15">
-                    <p>Birthday : <span>4 sep 2003</span></p>
-                  </div>
-                  <div class="info-item padd-15">
-                    <p>Age : <span>21</span></p>
-                  </div>
-                  <div class="info-item padd-15">
-                    <p>Website : <span>dch2r.github.io</span></p>
-                  </div>
-                  <div class="info-item padd-15">
-                    <p>Email : <span>diweshch2r@gmail.com</span></p>
-                  </div>
-                  <div class="info-item padd-15">
-                    <p>Degree : <span>Btech in CSE (2024)</span></p>
-                  </div>
-                  <div class="info-item padd-15">
-                    <p>Phone : <span>+91-8072469464</span></p>
-                  </div>
-                  <div class="info-item padd-15">
-                    <p>City : <span>Vellore</span></p>
-                  </div>
-                  <div class="info-item padd-15">
-                    <p>Freelance : <span>Available</span></p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="buttons">
-                    <a href="#" class="btn">Download CV</a>
-                    <a href="# contact" class="btn hire-me">Hire Me</a>
-                  </div>
-                </div>
-              </div>
-              <div class="skills padd-15">
-                <div class="row">
-                  <div class="skill-item padd-15">
-                    <h5>JS</h5>
-                    <div class="progress">
-                      <div class="progress-in" style="width:86%;"></div>
-                      <div class="skill-percent">86%</div>
-                    </div>
-                  </div>
-                  <div class="skill-item padd-15">
-                    <h5>PHP</h5>
-                    <div class="progress">
-                      <div class="progress-in" style="width:66%;"></div>
-                      <div class="skill-percent">66%</div>
-                    </div>
-                  </div>
-                  <div class="skill-item padd-15">
-                    <h5>HTML</h5>
-                    <div class="progress">
-                      <div class="progress-in" style="width:96%;"></div>
-                      <div class="skill-percent">96%</div>
-                    </div>
-                  </div>
-                  <div class="skill-item padd-15">
-                    <h5>Bootstrap</h5>
-                    <div class="progress">
-                      <div class="progress-in" style="width:76%;"></div>
-                      <div class="skill-percent">76%</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="education padd-15">
-                <h3 class="title">Education</h3>
-                <div class="row">
-                  <div class="timeline-box padd-15">
-                    <div class="timeline shadow-dark">
-                     <!-- ====timeline item ===== -->
-                     <div class="timeline-item">
-                      <div class="circle-dot"> </div>
-                        <h3 class="timeline-date">
-                          <i class="fa fa-calendar"></i> 2020 - 2024
-                        </h3>
-                        <h4 class="timeline-title">Bachelor in Computer Science</h4>
-                        <p class="timeline-text">Currently pursuing CSE in Btech in VIT Vellore with current CGPA of 8.61 out of 10. </p>
-                     </div>
-                     <!-- ====timeline item ===== -->
-                     <div class="timeline-item">
-                      <div class="circle-dot"> </div>
-                        <h3 class="timeline-date">
-                          <i class="fa fa-calendar"></i> 2018 - 2020
-                        </h3>
-                        <h4 class="timeline-title">Higher Seconday Education</h4>
-                        <p class="timeline-text">Completed my +2 from Trinity Internation College in Computer Science with CGPA of 3.34 out of 10.</p>
-                     </div>
-                     <!-- ====timeline item ===== -->
-                     <div class="timeline-item">
-                      <div class="circle-dot"> </div>
-                        <h3 class="timeline-date">
-                          <i class="fa fa-calendar"></i> 2018
-                        </h3>
-                        <h4 class="timeline-title">School level</h4>
-                        <p class="timeline-text">Completed schooling from English Preparatory Seconday School with a CGPA of 3.66 out of 10.</p>
-                     </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- <div class="experience padd-15">
-                <h3 class="title">Experience</h3>
-                <div class="row">
-                  <div class="timeline-box padd-15">
-                    <div class="timeline shadow-dark"> -->
-                     <!-- ====timeline item ===== -->
-                     <!-- <div class="timeline-item">
-                      <div class="circle-dot"> </div>
-                        <h3 class="timeline-date">
-                          <i class="fa fa-calendar"></i> 2013 - 2015
-                        </h3>
-                        <h4 class="timeline-title">Bachelor in Computer Science</h4>
-                        <p class="timeline-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos nemo, ea corrupti accusamus repellat unde dicta doloremque, eaque iusto facere id laborum, doloribus eveniet. Sapiente harum blanditiis dignissimos delectus aut.</p>
-                     </div> -->
-                     <!-- ====timeline item ===== -->
-                     <!-- <div class="timeline-item">
-                      <div class="circle-dot"> </div>
-                        <h3 class="timeline-date">
-                          <i class="fa fa-calendar"></i> 2013 - 2015
-                        </h3>
-                        <h4 class="timeline-title">Bachelor in Computer Science</h4>
-                        <p class="timeline-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos nemo, ea corrupti accusamus repellat unde dicta doloremque, eaque iusto facere id laborum, doloribus eveniet. Sapiente harum blanditiis dignissimos delectus aut.</p>
-                     </div> -->
-                     <!-- ====timeline item ===== -->
-                     <!-- <div class="timeline-item">
-                      <div class="circle-dot"> </div>
-                        <h3 class="timeline-date">
-                          <i class="fa fa-calendar"></i> 2013 - 2015
-                        </h3>
-                        <h4 class="timeline-title">Bachelor in Computer Science</h4>
-                        <p class="timeline-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos nemo, ea corrupti accusamus repellat unde dicta doloremque, eaque iusto facere id laborum, doloribus eveniet. Sapiente harum blanditiis dignissimos delectus aut.</p>
-                     </div>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
-            </div>
-          </div>
+        <p>A training-free pipeline that checks every object a vision-language model mentions against the image using CLIP, then rewrites only the parts it made up. Cut caption-level hallucinations by 15.6% on MS COCO with Qwen2.5-VL-7B.</p>
+        <ul class="tags"><li>PyTorch</li><li>Qwen2.5-VL</li><li>CLIP</li><li>Hugging Face</li></ul>
+        <p class="card-links"><a href="https://github.com/dch2r/vlm-hallucination-calibration">Code</a></p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <h3><a href="https://github.com/dch2r/Chasing-the-Aha-Moment">Chasing the Aha Moment</a></h3>
+          <span class="meta">Research · 2025</span>
         </div>
+        <p>GRPO post-training of Qwen2.5-1.5B on a single T4 GPU, with a full audit of the rewards and evaluation. Showed that the score gain came from answer formatting rather than better math, and that the reward parser was penalizing correct answers.</p>
+        <ul class="tags"><li>PyTorch</li><li>TRL</li><li>LoRA</li><li>GRPO</li></ul>
+        <p class="card-links"><a href="https://github.com/dch2r/Chasing-the-Aha-Moment">Code</a></p>
+      </article>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <div class="entry">
+        <div class="entry-head">
+          <h3>Graduate Teaching Assistant</h3>
+          <span class="meta">Aug 2026 to present</span>
+        </div>
+        <p class="org">Rice University · COMP 345, Foundations of Machine Learning</p>
+        <p>Co-developed labs and problem sets for 28 lectures on backpropagation, transformers, self-supervised learning and reinforcement learning. I lead weekly recitations and advise student projects built on LLMs and VLMs.</p>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <h3>Machine Learning Research Intern</h3>
+          <span class="meta">Jun 2026 to Jul 2026</span>
+        </div>
+        <p class="org">Baylor College of Medicine · Computational Biology</p>
+        <p>Sole engineer on a 12-stage pipeline that merged three biological data sources into interaction graphs with 1.53M edges. Built the interactive tool on top of it, which answers subgraph queries in under 15 seconds.</p>
       </div>
     </section>
-    <!--            About section end            -->  
-    <!--            Services section start       -->
-    <section class="service section" id="services">
-      <div class="container">
-        <div class="row">
-          <div class="section-title padd-15">
-            <h2>Services</h2>
-          </div>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="entry-head">
+          <h3>Rice University</h3>
+          <span class="meta">2025 to 2026</span>
         </div>
-        <div class="row">
-          <!-- ==== Services item start ===== -->
-          <div class="service-item padd-15">
-            <div class="service-item-inner">
-              <div class="icon">
-                <i class="fa fa-mobile-alt"></i>
-              </div>
-              <h4>Web Design</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet beatae autem recusandae!</p>
-            </div>
-          </div>
-          <!-- ==== Services item end ======  -->
-          <!-- ==== Services item start ===== -->
-          <div class="service-item padd-15">
-            <div class="service-item-inner">
-              <div class="icon">
-                <i class="fa fa-laptop-code"></i>
-              </div>
-              <h4>Web Design</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet beatae autem recusandae!</p>
-            </div>
-          </div>
-          <!-- ==== Services item end ======  -->
-          <!-- ==== Services item start ===== -->
-          <div class="service-item padd-15">
-            <div class="service-item-inner">
-              <div class="icon">
-                <i class="fa fa-palette"></i>
-              </div>
-              <h4>Web Design</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet beatae autem recusandae!</p>
-            </div>
-          </div>
-          <!-- ==== Services item end ======  -->
-          <!-- ==== Services item start ===== -->
-          <div class="service-item padd-15">
-            <div class="service-item-inner">
-              <div class="icon">
-                <i class="fa fa-code"></i>
-              </div>
-              <h4>Web Design</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet beatae autem recusandae!</p>
-            </div>
-          </div>
-          <!-- ==== Services item end ======  -->
-          <!-- ==== Services item start ===== -->
-          <div class="service-item padd-15">
-            <div class="service-item-inner">
-              <div class="icon">
-                <i class="fa fa-search"></i>
-              </div>
-              <h4>Web Design</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet beatae autem recusandae!</p>
-            </div>
-          </div>
-          <!-- ==== Services item end ======  -->
-          <!-- ==== Services item start ===== -->
-          <div class="service-item padd-15">
-            <div class="service-item-inner">
-              <div class="icon">
-                <i class="fa fa-bullhorn"></i>
-              </div>
-              <h4>Web Design</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet beatae autem recusandae!</p>
-            </div>
-          </div>
-          <!-- ==== Services item end ======  -->
+        <p class="org">Master of Computer Science, Machine Learning</p>
+      </div>
+      <div class="entry">
+        <div class="entry-head">
+          <h3>Vellore Institute of Technology</h3>
+          <span class="meta">2020 to 2024</span>
         </div>
+        <p class="org">Bachelor of Technology, Computer Science and Engineering</p>
       </div>
     </section>
-    <!--          Services section end            -->  
-    <!--            Portfolio section start       -->
-    <section class="portfolio section" id="portfolio">
-      <div class="container">
-        <div class="row">
-          <div class="section-title padd-15">
-            <h2>Projects</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="portfolio-heading padd-15">
-            <h2>My  Last Projects:</h2>
-          </div>
-        </div>
-        <div class="row">
-          <!-- ===== portfolio item start  ======== -->
-          <div class="portfolio-item padd-15">
-            <div class="portfolio-item-inner shadow-dark">
-              <div class="portfolio-img">
-                <img src="Project_1.jpg" alt="">
-              </div>
-            </div>  
-          </div>
-          <div class="portfolio-item padd-15">
-            <div class="portfolio-item-inner shadow-dark">
-              <div class="portfolio-img">
-                <img src="Project_2.jpg" alt="">
-              </div>
-            </div>  
-          </div>
-          <div class="portfolio-item padd-15">
-            <div class="portfolio-item-inner shadow-dark">
-              <div class="portfolio-img">
-                <img src="Project_3.jpg" alt="">
-              </div>
-            </div>  
-          </div>
-          <div class="portfolio-item padd-15">
-            <div class="portfolio-item-inner shadow-dark">
-              <div class="portfolio-img">
-                <img src="Project_4.jpg" alt="">
-              </div>
-            </div>  
-          </div>
-          <div class="portfolio-item padd-15">
-            <div class="portfolio-item-inner shadow-dark">
-              <div class="portfolio-img">
-                <img src="Project_5.jpg" alt="">
-              </div>
-            </div>  
-          </div>
-          <div class="portfolio-item padd-15">
-            <div class="portfolio-item-inner shadow-dark">
-              <div class="portfolio-img">
-                <img src="Project_6.jpg" alt="">
-              </div>
-            </div>  
-          </div>
-           <!-- ===== portfolio item end  ======== -->
-        </div>
+
+    <section id="publication">
+      <h2>Publication</h2>
+      <div class="entry">
+        <h3><a href="https://ieeexplore.ieee.org/document/10696641">Enhancing Text Summarization through Parallelization: A TF-IDF Algorithm Approach</a></h3>
+        <p class="org">IEEE Xplore · 2024</p>
+        <p>Profiled an extractive summarization pipeline and parallelized its slowest stages in C++ with OpenMP, cutting inference time by 41% with identical output.</p>
       </div>
     </section>
-    <!--            Portfolio section end      -->
-    <!--
-      1
-      2
-      3
-      4
-      5
-      6
-      7
-      8
-    -->
-     <!--           Contact section start      -->
-     <section class="contact section" id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="section-title padd-15">
-            <h2>Contact Me</h2>
-          </div>
-        </div>
-        <h3 class="contact-title padd-15">Have you any Queries?</h3>
-        <h4 class="contact-sub-title padd-15">I'M AT YOUR SERVICES</h4>
-        <div class="row">
-          <!-- ===== contact info item start =====-->
-          <div class="contact-info-item padd-15">
-            <div class="icom"><i class="fa fa-phone"></i></div>
-            <h4>Call Me On</h4>
-            <p>+91 8072469464</p>
-          </div>
-           <!-- ===== contact info item end =====-->
-            <!-- ===== contact info item start =====-->
-          <div class="contact-info-item padd-15">
-            <div class="icom"><i class="fa fa-map-marker-alt"></i></div>
-            <h4>Ofiice</h4>
-            <p>Vellore</p>
-          </div>
-           <!-- ===== contact info item end =====-->
-            <!-- ===== contact info item start =====-->
-          <div class="contact-info-item padd-15">
-            <div class="icom"><i class="fa fa-envelope"></i></div>
-            <h4>Email</h4>
-            <p>diweshch2r@gmail.com</p>
-          </div>
-           <!-- ===== contact info item end =====-->
-            <!-- ===== contact info item start =====-->
-          <div class="contact-info-item padd-15">
-            <div class="icom"><i class="fa fa-globe-europe"></i></div>
-            <h4>Website</h4>
-            <p>dch2r.github.io</p>
-          </div>
-           <!-- ===== contact info item end =====-->
-        </div>
-        <h3 class="contact-title padd-15">SEND ME AN EMAIL</h3>
-        <h4 class="contact-sub-title padd-15">I AM VERY RESPONSIVE TO MESSAGES</h4>
-        <!-- ===== Contact form ===== -->
-        <div class="row">
-          <div class="contact-form padd-15">
-            <div class="row">
-              <div class="form-item col-6 padd-15">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Name">
-                </div>
-              </div>
-              <div class="form-item col-6 padd-15">
-                <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Email">
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-item col-12 padd-15">
-                <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Subject">
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-item col-12 padd-15">
-                <div class="form-group">
-                 <textarea name="" class="form-control" id="" placeholder="Message"></textarea>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-item col-12 padd-15">
-               <button type="submit" class="btn">Send Message</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-     </section>
-      <!--           Contact section end       -->
-    </div>
-     <!--         =====Main content end=====          -->
-     </div>
-     <!--    =====Main container ends supto here===== -->
-     <!-- =====Style switcher start===== -->
-     <div class="style-switcher">
-      <div class="style-switcher-toggler s-icon">
-        <i class="fas fa-cog fa-spin"></i>
-      </div>
-      <div class="day-night s-icon">
-        <i class="fas "></i>
-      </div>
-      <h4>Theme Colors</h4>
-      <div class="colors">
-        <span class="color-1" onclick="setActiveStyle('color-1')"></span>
-        <span class="color-2" onclick="setActiveStyle('color-2')"></span>
-        <span class="color-3" onclick="setActiveStyle('color-3')"></span>
-        <span class="color-4" onclick="setActiveStyle('color-4')"></span>
-        <span class="color-5" onclick="setActiveStyle('color-5')"></span>
-      </div>
-     </div>
-      <!-- =====Style switcher end===== -->
-     <!--                   Javascript files    -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js" referrerpolicy="no-referrer"></script>
-    <script src="script.js"> </script>
-    <script src="style-switcher.js"></script>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <dl class="skills">
+        <dt>Languages</dt><dd>Python, C++, TypeScript, SQL, Bash</dd>
+        <dt>ML and LLMs</dt><dd>PyTorch, TensorFlow, scikit-learn, Hugging Face Transformers, TRL, PEFT (LoRA), CLIP, LangGraph, RAG</dd>
+        <dt>Backend and data</dt><dd>FastAPI, SQLAlchemy, PostgreSQL, Next.js, NetworkX, Pandas</dd>
+        <dt>Infra and MLOps</dt><dd>Docker, Kubernetes, Helm, GitHub Actions, OpenTelemetry, AWS, Azure, Linux</dd>
+      </dl>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>The best way to reach me is by <a href="mailto:diweshch2r@gmail.com">email</a>. You can also find me on <a href="https://www.linkedin.com/in/diweshch/">LinkedIn</a> and <a href="https://github.com/dch2r">GitHub</a>.</p>
+    </section>
+  </main>
+
+  <footer class="wrap footer">Diwesh Chaurasia · Houston, TX</footer>
 </body>
 </html>
