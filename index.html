@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body>
   <header class="topbar">
@@ -47,7 +47,7 @@
     <section id="work">
       <h2>Selected work</h2>
 
-      <article class="card">
+      <article class="card" id="signalfloor">
         <div class="card-head">
           <h3><a href="https://github.com/dch2r/signalfloor">signalfloor</a></h3>
           <span class="meta">Open source · 2026</span>
@@ -84,7 +84,7 @@ verdict     <span class="bad">regression</span>
         <p class="card-links"><a href="https://pypi.org/project/signalfloor/">PyPI</a><a href="https://github.com/dch2r/signalfloor">Code</a></p>
       </article>
 
-      <article class="card">
+      <article class="card" id="vlm-hallucination">
         <div class="card-head">
           <h3><a href="https://github.com/dch2r/vlm-hallucination-calibration">Calibrating Hallucinations in Vision-Language Models</a></h3>
           <span class="meta">Research · 2026</span>
@@ -118,7 +118,7 @@ verdict     <span class="bad">regression</span>
         <p class="card-links"><a href="https://github.com/dch2r/vlm-hallucination-calibration">Code</a></p>
       </article>
 
-      <article class="card">
+      <article class="card" id="aha-moment">
         <div class="card-head">
           <h3><a href="https://github.com/dch2r/Chasing-the-Aha-Moment">Chasing the Aha Moment</a></h3>
           <span class="meta">Research · 2025</span>
@@ -168,7 +168,7 @@ verdict     <span class="bad">regression</span>
         <p class="org">Baylor College of Medicine · Computational Biology</p>
         <p>Sole engineer on a 12-stage pipeline that merged three biological data sources into interaction graphs with 1.53M edges. Built the interactive tool on top of it, which answers subgraph queries in under 15 seconds.</p>
 
-        <figure class="showcase tool" data-tabs>
+        <figure class="showcase tool" id="lifespan-explorer" data-tabs>
           <div class="tool-head">
             <h4>Lifespan Network Explorer</h4>
             <p>The research tool I built for the Botas Lab at Baylor's Duncan Neurological Research Institute. It shows which longevity genes interact, and which of those interactions are conserved across human, mouse, fly, worm and yeast. The code is private, so here it is in use.</p>

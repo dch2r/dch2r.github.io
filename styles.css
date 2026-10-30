@@ -221,3 +221,5 @@ h3 a { color: var(--text); }
 .tabbar { overflow-x: auto; scrollbar-width: none; }
 .tabbar::-webkit-scrollbar { display: none; }
 .tabbar button { white-space: nowrap; flex: none; }
+
+[id] { scroll-margin-top: 72px; }
