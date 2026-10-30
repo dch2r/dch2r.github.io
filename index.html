@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
   <header class="topbar">
@@ -146,22 +146,86 @@ verdict     <span class="bad">regression</span>
     <section id="experience">
       <h2>Experience</h2>
 
-      <div class="entry">
+      <div class="entry with-logo">
+        <img class="entry-logo" src="img/logo-rice.png" alt="Rice University shield" width="48" height="48">
+        <div class="entry-body">
         <div class="entry-head">
           <h3>Graduate Teaching Assistant</h3>
           <span class="meta">Aug 2026 to present</span>
         </div>
         <p class="org">Rice University · COMP 345, Foundations of Machine Learning</p>
         <p>Co-developed labs and problem sets for 28 lectures on backpropagation, transformers, self-supervised learning and reinforcement learning. I lead weekly recitations and advise student projects built on LLMs and VLMs.</p>
+        </div>
       </div>
 
-      <div class="entry">
+      <div class="entry with-logo">
+        <img class="entry-logo" src="img/logo-bcm.png" alt="Baylor College of Medicine logo" width="48" height="48">
+        <div class="entry-body">
         <div class="entry-head">
           <h3>Machine Learning Research Intern</h3>
           <span class="meta">Jun 2026 to Jul 2026</span>
         </div>
         <p class="org">Baylor College of Medicine · Computational Biology</p>
         <p>Sole engineer on a 12-stage pipeline that merged three biological data sources into interaction graphs with 1.53M edges. Built the interactive tool on top of it, which answers subgraph queries in under 15 seconds.</p>
+
+        <figure class="showcase tool" data-tabs>
+          <div class="tool-head">
+            <h4>Lifespan Network Explorer</h4>
+            <p>The research tool I built for the Botas Lab at Baylor's Duncan Neurological Research Institute. It shows which longevity genes interact, and which of those interactions are conserved across human, mouse, fly, worm and yeast. The code is private, so here it is in use.</p>
+          </div>
+          <div class="tabbar" role="tablist" aria-label="Lifespan Network Explorer views">
+            <button role="tab" aria-selected="true" aria-controls="ln-lookup" id="ln-lookup-tab">Gene lookup</button>
+            <button role="tab" aria-selected="false" aria-controls="ln-filter" id="ln-filter-tab" tabindex="-1">Candidate filter</button>
+            <button role="tab" aria-selected="false" aria-controls="ln-worm" id="ln-worm-tab" tabindex="-1">Worm evidence</button>
+            <button role="tab" aria-selected="false" aria-controls="ln-pipeline" id="ln-pipeline-tab" tabindex="-1">Pipeline</button>
+          </div>
+          <div class="panel" role="tabpanel" id="ln-lookup" aria-labelledby="ln-lookup-tab">
+            <a href="img/bcm-lookup.webp"><picture>
+              <source media="(prefers-reduced-motion: reduce)" srcset="img/bcm-lookup-poster.jpg">
+              <img src="img/bcm-lookup.webp" alt="Searching FOXO3 in the human network. The graph zooms to FOXO3 and the side panel fills with its orthologs" width="1232" height="880" loading="lazy">
+            </picture></a>
+            <img class="stacked" src="img/bcm-orthologs.jpg" alt="Ortholog table for FOXO3: fly foxo and worm daf-16 extend lifespan, mouse Foxo3 does not" width="1232" height="317" loading="lazy">
+            <figcaption>Searching FOXO3, a human longevity gene, in a network of 232 genes and 2,074 high-confidence STRING interactions. The panel lists its orthologs in fly, worm and mouse with DIOPT scores and flags a match in the curated lifespan lists. The table shows the fly and worm orthologs extend lifespan when manipulated.</figcaption>
+          </div>
+          <div class="panel" role="tabpanel" id="ln-filter" aria-labelledby="ln-filter-tab" hidden>
+            <a href="img/bcm-conserved.webp"><picture>
+              <source media="(prefers-reduced-motion: reduce)" srcset="img/bcm-conserved-poster.jpg">
+              <img src="img/bcm-conserved.webp" alt="The human network filtered from all 232 genes, to 53 conserved in all four species, to 138 with a fly ortholog" width="1232" height="880" loading="lazy">
+            </picture></a>
+            <figcaption>One click narrows the 232 human genes to the 53 with orthologs in all four model organisms, or to the 138 with a fly ortholog. Those are the genes the lab can test directly in its Drosophila screens.</figcaption>
+          </div>
+          <div class="panel" role="tabpanel" id="ln-worm" aria-labelledby="ln-worm-tab" hidden>
+            <a href="img/bcm-worm.jpg"><img src="img/bcm-worm.jpg" alt="The C. elegans network colored by intervention type, with DAF-2 selected and its lifespan evidence table below" width="1232" height="1046" loading="lazy"></a>
+            <figcaption>The C. elegans network, 324 genes colored by how each was manipulated in lifespan studies: loss of function, overexpression or both. Selecting DAF-2 shows 9 intervention methods and 93 publications, each linked to PubMed.</figcaption>
+          </div>
+          <div class="panel" role="tabpanel" id="ln-pipeline" aria-labelledby="ln-pipeline-tab" hidden>
+            <div class="flow">
+              <div class="flow-col">
+                <span class="label">Sources</span>
+                <div class="flow-box"><b>STRING v12</b>Protein interactions for 5 species</div>
+                <div class="flow-box"><b>DIOPT v9</b>Ortholog predictions across species</div>
+                <div class="flow-box"><b>Lifespan studies</b>Curated gene lists with PubMed evidence</div>
+              </div>
+              <div class="flow-arrow" aria-hidden="true">→</div>
+              <div class="flow-col">
+                <span class="label">12-stage Python pipeline</span>
+                <div class="flow-box">Keep interactions with confidence above 0.7: <b class="num">1,531,032</b> edges in SQLite</div>
+                <div class="flow-box">Map gene symbols to STRING and Entrez IDs</div>
+                <div class="flow-box">Build seed and one-hop networks per species</div>
+                <div class="flow-box">Score orthologs and attach lifespan evidence</div>
+              </div>
+              <div class="flow-arrow" aria-hidden="true">→</div>
+              <div class="flow-col">
+                <span class="label">App</span>
+                <div class="flow-box"><b>Dash and Cytoscape</b>5 interactive species networks</div>
+                <div class="flow-box">Runs fully offline from local data</div>
+                <div class="flow-box">Filters, gene search and CSV export</div>
+              </div>
+            </div>
+            <figcaption>How the data gets into the tool. STRING is queried from a local database, never the live API, so the lab gets the same answer every time.</figcaption>
+          </div>
+        </figure>
+        </div>
       </div>
     </section>
 
