@@ -188,3 +188,8 @@ h3 a { color: var(--text); }
   .audit-row { grid-template-columns: 80px 1fr; gap: 12px; }
   .audit-row img { width: 80px; height: 80px; }
 }
+
+.school { display: flex; gap: 16px; align-items: center; }
+.school-logo { flex: none; width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--line); }
+.school-body { flex: 1; min-width: 0; }
+.school .org { margin-top: 2px; }
